@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     var modelData : WikiSearchModel?
     var coreModelData = [WikiSearch]()
     var modelRequiredData = [WikiSearchData]()
+    var loadingData = false
+    var pageCount = 10
+    var searchText : String?
     
     //MARK: - Lifecycles
     override func viewDidLoad() {
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
         coreModelData = DatabaseController.getAllData()
         modelRequiredData.removeAll()
         if coreModelData.count > 0 {
-            
+            loadingData = true
             for data in coreModelData {
                 
                 modelRequiredData.append(WikiSearchData(title: data.title, url: data.url, imageUrl: data.imageUrl))
@@ -126,6 +129,16 @@ extension ViewController : UITableViewDelegate {
             cell.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
         
+        if !loadingData && indexPath.row == modelRequiredData.count - 1 {
+            loadingData = true
+            self.showSpinner(onView: self.view)
+            self.pageCount += 10
+            if let searchText = searchText
+            {
+            wikiManager.getSearchResult(text: searchText, limit: pageCount)
+            }
+        }
+        
     }
     
     
@@ -178,7 +191,9 @@ extension ViewController : UISearchBarDelegate {
         searchBar.endEditing(true)
         if let text = searchBar.text {
             if text.count > 0 {
+                searchText = text
                 modelRequiredData.removeAll()
+                loadingData = false
                 self.showSpinner(onView: self.view)
                 wikiManager.getSearchResult(text: text)
                 searchBar.text = ""
@@ -196,6 +211,11 @@ extension ViewController : WeatherManagerDelegate {
         
         guard let pages = modelData?.query.pages else {return}
         
+        if !loadingData
+        {
+            self.modelRequiredData.removeAll()
+        }
+        
         for i in 0..<pages.count {
             var imageUrl : String?
             if let imageUrlThum = pages[i].thumbnail
@@ -205,6 +225,7 @@ extension ViewController : WeatherManagerDelegate {
             modelRequiredData.append(WikiSearchData(title: pages[i].title, url: pages[i].fullurl,imageUrl : imageUrl))
         }
         self.removeSpinner()
+        
         if pages.count > 0 {
             DispatchQueue.main.async {
                 self.tableView.reloadData()

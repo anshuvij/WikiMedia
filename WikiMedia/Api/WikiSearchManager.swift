@@ -11,9 +11,9 @@ struct WikiSearchManager {
     
     var delegate : WeatherManagerDelegate?
     
-    func getSearchResult(text : String) {
+    func getSearchResult(text : String, limit : Int = 10) {
         
-        let urlString = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cpageterms%7Cinfo&inprop=url&continue=gpsoffset%7C%7C&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpssearch=\(text)&gpslimit=10&gpsoffset=20"
+        let urlString = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cpageterms%7Cinfo&inprop=url&continue=gpsoffset%7C%7C&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpssearch=\(text)&gpslimit=\(limit)&gpsoffset=10"
         performRequest(urlString: urlString)
     }
     
