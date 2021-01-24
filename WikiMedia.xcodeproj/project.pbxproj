@@ -14,6 +14,15 @@
 		163ABCDE25BC718900F66F9A /* WikiMedia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 163ABCDC25BC718900F66F9A /* WikiMedia.xcdatamodeld */; };
 		163ABCE025BC718B00F66F9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163ABCDF25BC718B00F66F9A /* Assets.xcassets */; };
 		163ABCE325BC718B00F66F9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163ABCE125BC718B00F66F9A /* LaunchScreen.storyboard */; };
+		163ABD0425BC724200F66F9A /* WikiSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163ABD0325BC724200F66F9A /* WikiSearchModel.swift */; };
+		163ABD0825BC735800F66F9A /* WikiSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163ABD0725BC735800F66F9A /* WikiSearchManager.swift */; };
+		163ABD0B25BC738500F66F9A /* WikiManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163ABD0A25BC738500F66F9A /* WikiManagerDelegate.swift */; };
+		163ABD1025BC797800F66F9A /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163ABD0E25BC797800F66F9A /* CustomCell.xib */; };
+		163ABD1125BC797800F66F9A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163ABD0F25BC797800F66F9A /* CustomCell.swift */; };
+		163ABD1425BC79C300F66F9A /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163ABD1325BC79C300F66F9A /* CustomImageView.swift */; };
+		163ABD1725BC808E00F66F9A /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163ABD1625BC808E00F66F9A /* WebVC.swift */; };
+		16E99B7A25BC8B6B00EC71D3 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E99B7925BC8B6B00EC71D3 /* DatabaseController.swift */; };
+		16E99B7D25BC905700EC71D3 /* WikiSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E99B7C25BC905700EC71D3 /* WikiSearchData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,15 @@
 		163ABCDF25BC718B00F66F9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		163ABCE225BC718B00F66F9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		163ABCE425BC718B00F66F9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		163ABD0325BC724200F66F9A /* WikiSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiSearchModel.swift; sourceTree = "<group>"; };
+		163ABD0725BC735800F66F9A /* WikiSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiSearchManager.swift; sourceTree = "<group>"; };
+		163ABD0A25BC738500F66F9A /* WikiManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiManagerDelegate.swift; sourceTree = "<group>"; };
+		163ABD0E25BC797800F66F9A /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		163ABD0F25BC797800F66F9A /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		163ABD1325BC79C300F66F9A /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		163ABD1625BC808E00F66F9A /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
+		16E99B7925BC8B6B00EC71D3 /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		16E99B7C25BC905700EC71D3 /* WikiSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiSearchData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +76,57 @@
 		163ABCD225BC718900F66F9A /* WikiMedia */ = {
 			isa = PBXGroup;
 			children = (
+				163ABD0225BC721F00F66F9A /* Api */,
+				163ABD0025BC720100F66F9A /* Controller */,
+				163ABCFF25BC71FC00F66F9A /* View */,
+				163ABCFE25BC71F500F66F9A /* Model */,
 				163ABCD325BC718900F66F9A /* AppDelegate.swift */,
 				163ABCD525BC718900F66F9A /* SceneDelegate.swift */,
-				163ABCD725BC718900F66F9A /* ViewController.swift */,
-				163ABCD925BC718900F66F9A /* Main.storyboard */,
 				163ABCDF25BC718B00F66F9A /* Assets.xcassets */,
 				163ABCE125BC718B00F66F9A /* LaunchScreen.storyboard */,
 				163ABCE425BC718B00F66F9A /* Info.plist */,
-				163ABCDC25BC718900F66F9A /* WikiMedia.xcdatamodeld */,
 			);
 			path = WikiMedia;
+			sourceTree = "<group>";
+		};
+		163ABCFE25BC71F500F66F9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				163ABCDC25BC718900F66F9A /* WikiMedia.xcdatamodeld */,
+				163ABD0325BC724200F66F9A /* WikiSearchModel.swift */,
+				163ABD0A25BC738500F66F9A /* WikiManagerDelegate.swift */,
+				16E99B7925BC8B6B00EC71D3 /* DatabaseController.swift */,
+				16E99B7C25BC905700EC71D3 /* WikiSearchData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		163ABCFF25BC71FC00F66F9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				163ABD1325BC79C300F66F9A /* CustomImageView.swift */,
+				163ABCD925BC718900F66F9A /* Main.storyboard */,
+				163ABD0F25BC797800F66F9A /* CustomCell.swift */,
+				163ABD0E25BC797800F66F9A /* CustomCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		163ABD0025BC720100F66F9A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				163ABCD725BC718900F66F9A /* ViewController.swift */,
+				163ABD1625BC808E00F66F9A /* WebVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		163ABD0225BC721F00F66F9A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				163ABD0725BC735800F66F9A /* WikiSearchManager.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +188,7 @@
 			files = (
 				163ABCE325BC718B00F66F9A /* LaunchScreen.storyboard in Resources */,
 				163ABCE025BC718B00F66F9A /* Assets.xcassets in Resources */,
+				163ABD1025BC797800F66F9A /* CustomCell.xib in Resources */,
 				163ABCDB25BC718900F66F9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,10 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163ABD0425BC724200F66F9A /* WikiSearchModel.swift in Sources */,
+				163ABD1425BC79C300F66F9A /* CustomImageView.swift in Sources */,
+				163ABD0B25BC738500F66F9A /* WikiManagerDelegate.swift in Sources */,
 				163ABCD825BC718900F66F9A /* ViewController.swift in Sources */,
+				16E99B7A25BC8B6B00EC71D3 /* DatabaseController.swift in Sources */,
 				163ABCD425BC718900F66F9A /* AppDelegate.swift in Sources */,
+				163ABD0825BC735800F66F9A /* WikiSearchManager.swift in Sources */,
 				163ABCDE25BC718900F66F9A /* WikiMedia.xcdatamodeld in Sources */,
+				163ABD1725BC808E00F66F9A /* WebVC.swift in Sources */,
+				163ABD1125BC797800F66F9A /* CustomCell.swift in Sources */,
 				163ABCD625BC718900F66F9A /* SceneDelegate.swift in Sources */,
+				16E99B7D25BC905700EC71D3 /* WikiSearchData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
